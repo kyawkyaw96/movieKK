@@ -9,6 +9,8 @@ const TvDetails = () => {
   const id = param?.id;
   const [fullTvDetails, setFullTvDetails] = useState("");
   const [name, setName] = useState("");
+  const [name1, setName1] = useState("");
+  const [name2, setName2] = useState("");
 
   const [loading, setLoading] = useState(true);
 
@@ -32,6 +34,8 @@ const TvDetails = () => {
         setFullTvDetails(response.data);
         console.log(response.data);
         setName(response.data?.genres[0]?.name);
+        setName1(response.data?.genres[1]?.name);
+        setName2(response.data?.genres[2]?.name);
 
         setLoading(false); // Mark loading as complete
       } catch (error) {
@@ -88,9 +92,9 @@ const TvDetails = () => {
         </nav>
         {fullTvDetails ? (
           <div className=' lg:flex  lg:items-center'>
-            <div className=' m-7 lg:m-20'>
+            <div className=' m-[2.2rem] lg:m-20'>
               <img
-                className=' h-[450px] rounded-lg object-cover'
+                className=' h-[450px] rounded-lg object-cover hover:scale-105 transition'
                 src={`https://image.tmdb.org/t/p/w500/${fullTvDetails?.poster_path}`}
                 alt='Backdrop'
               />
@@ -100,14 +104,31 @@ const TvDetails = () => {
                 <button className=' px-3 py-1 text-sm text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-md mr-2 '>
                   {name}
                 </button>
+                {name1 && (
+                  <button className=' px-3 py-1 text-sm text-white bg-gradient-to-r from-green-400 to-blue-500  rounded-md mr-2 '>
+                    {name1}
+                  </button>
+                )}
+                {name2 && (
+                  <button className=' px-3 py-1 text-sm text-white bg-gradient-to-r from-green-400 to-blue-500  rounded-md mr-2 '>
+                    {name2}
+                  </button>
+                )}
               </div>
               <h1 className=' text-3xl text-white font-Noto font-bold'>
                 {fullTvDetails?.original_name}
               </h1>
+              <p className=' text-white flex font-bold'>
+                Release Date -{" "}
+                <span className=' italic'>
+                  {" "}
+                  {fullTvDetails?.first_air_date}{" "}
+                </span>
+              </p>
               <h1 className='text-gray-50 font-Roboto'>
                 {fullTvDetails?.overview}
               </h1>
-              <div className=' lg:flex flex-row gap-2'>
+              <div className=' lg:flex flex-row gap-2 lg:mb-3'>
                 <h1 className='mb-2 lg:mb-0 flex items-center gap-1 text-yellow-400 font-bold'>
                   <AiFillStar />
                   {fullTvDetails.vote_average} ({fullTvDetails?.popularity}{" "}
@@ -116,7 +137,7 @@ const TvDetails = () => {
                 <a
                   href={`https://www.youtube.com/embed/${trailerTv}`}
                   title='Movie Trailer'
-                  className=' px-3 py-1  text-sm text-white bg-gradient-to-r from-green-400 to-blue-500 uppercase hover:from-pink-500 hover:to-yellow-500  rounded-md mr-2 hover:scale-105'
+                  className=' px-3 py-1  text-sm text-white bg-gradient-to-r  hover:from-green-400 hover:to-blue-500 from-pink-500 to-yellow-500  rounded-md mr-2 hover:scale-105'
                 >
                   watch trailer
                 </a>

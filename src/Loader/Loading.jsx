@@ -4,7 +4,7 @@ import "./loader.css";
 const Loading = () => {
   return (
     <div className=' w-full h-screen flex justify-center items-center'>
-      <div class='lds-ellipsis'>
+      <div className='lds-ellipsis'>
         <div></div>
         <div></div>
         <div></div>

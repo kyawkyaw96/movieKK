@@ -23,19 +23,19 @@ const Movies = ({ movie }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 1, scale: 0 }}
-        className='w-36 md:w-52 inline-block  m-2 hover:scale-110 transition bg-gray-800 rounded-bl-[20px] rounded-tr-[20px] p-3'
+        className='w-36 md:w-52 inline-block  m-2 hover:scale-110 transition bg-gray-300 rounded-bl-[20px] rounded-tr-[20px] p-3'
       >
-        <div className='relative mb-2'>
+        <div className='relative mb-2 hover:scale-105 transition-all'>
           <img
-            className='w-full h-60 rounded-xl'
+            className='w-full h-60 rounded-bl-[20px] rounded-tr-[20px] '
             src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
             alt=''
           />
-          <div className=' shadow-lg bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600 rounded-md shadow-red-600 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-80'>
+          <div className=' shadow-md bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600 rounded-bl-[20px] rounded-tr-[20px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-80'>
             <Link to={`/movieDetails/${movie?.id}`}>
               <button
                 title='Watch on youtube'
-                className=' font-semibold bg-red-600 shadow-red-500 text-white text-lg rounded-full py-1 px-3'
+                className=' font-semibold bg-gray-300 shadow-gray-400 text-gray-800 text-lg rounded-full py-1 px-3'
               >
                 Trailer
               </button>
@@ -43,10 +43,10 @@ const Movies = ({ movie }) => {
           </div>
         </div>
 
-        <h1 className=' overflow-hidden ml-2 text-white text-lg font-bold'>
+        <h1 className=' overflow-hidden ml-2 text-gray-700 text-lg font-bold'>
           {movie?.original_title}
         </h1>
-        <h1 className=' ml-2 text-white text-sm'>{movie?.release_date}</h1>
+        <h1 className=' ml-2 text-gray-700 text-sm'>{movie?.release_date}</h1>
       </motion.div>
     </>
   );
