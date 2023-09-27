@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className='  w-screen bg-[#032541] flex flex-wrap items-start justify-center gap-8 py-10'>
-      <div className=' flex flex-col gap-3 items-center '>
+    <div className='  w-screen bg-[#032541] flex flex-wrap items-start justify-center gap-2 pt-10 pb-5'>
+      <div className=' flex flex-col gap-1 lg:gap-3 items-center '>
         <div className='font-Noto  w-32 h-20 flex items-center justify-center rounded-md text-gray-600 hover:text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 '>
           <span className=' text-2xl tracking-wide font-bold'>Movie</span>{" "}
           <span className=' text-2xl'>KK</span>
@@ -13,8 +13,8 @@ const Footer = () => {
           Thank You
         </button>
       </div>
-      <ul>
-        <li className=' text-white font-bold text-xl'>THE BASICS</li>
+      <ul className=' text-xs lg:text-sm'>
+        <li className=' text-white font-bold text-sm lg:text-lg'>THE BASICS</li>
         <li className=' text-white '>
           <a href='https://www.themoviedb.org/about'>About TMDB</a>
         </li>
@@ -29,8 +29,8 @@ const Footer = () => {
           <a href='https://status.themoviedb.org/'>System Status</a>
         </li>
       </ul>
-      <ul>
-        <li className=' text-white font-bold text-xl'>
+      <ul className=' text-xs lg:text-sm'>
+        <li className=' text-white font-bold text-sm lg:text-lg'>
           <a href='#'>GET INVOLVED</a>
         </li>
         <li className=' text-white '>
@@ -43,8 +43,8 @@ const Footer = () => {
           <a href='https://www.themoviedb.org/movie/new'>Add New TV Show</a>
         </li>
       </ul>
-      <ul>
-        <li className=' text-white font-bold text-xl'>
+      <ul className=' text-xs lg:text-sm'>
+        <li className=' text-white font-bold text-sm lg:text-lg'>
           <a href='#'>COMMUNITY</a>
         </li>
         <li className=' text-white '>
@@ -60,9 +60,9 @@ const Footer = () => {
           <a href=''>Twitter</a>
         </li>
       </ul>
-      <ul>
+      <ul className=' text-xs lg:text-sm'>
         {/* <Link to={"/contact"}> */}
-        <li className=' text-white font-bold text-xl'>
+        <li className=' text-white font-bold text-sm lg:text-lg'>
           <a href=''>CONTACT US</a>
         </li>
         {/* </Link> */}
@@ -70,10 +70,12 @@ const Footer = () => {
           <a href=''>Developer- W Kyaw Kyaw</a>
         </li>
         <li className=' text-white '>
-          <a href=''>Ph-09789799629</a>
+          <a href='tel:+959789799629'>Ph-09789799629</a>
         </li>
         <li className=' text-white '>
-          <a href=''>Email- www.winkyaw96@gmail.com</a>
+          <a href='mailto:www.winkyaw96@gmail.com'>
+            Email- www.winkyaw96@gmail.com
+          </a>
         </li>
         <li className=' text-white cursor-pointer'>
           <a href='https://github.com/kyawkyaw96'>GitHub</a>

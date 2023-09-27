@@ -23,7 +23,7 @@ const Movies = ({ movie }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 1, scale: 0 }}
-        className='w-36 md:w-52 inline-block  m-2 hover:scale-110 transition bg-gray-300 rounded-bl-[20px] rounded-tr-[20px] p-3'
+        className='w-36 md:w-52 inline-block  m-2 hover:scale-110 transition bg-gray-300 rounded-bl-[20px] rounded-tr-[20px] lg:p-3'
       >
         <div className='relative mb-2 hover:scale-105 transition-all'>
           <img

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Tv = ({ tv }) => {
   return (
-    <div className='w-36 md:w-52 inline-block  m-2  transition bg-gray-300   p-3'>
+    <div className='w-36 md:w-52 inline-block  m-2  transition bg-gray-300  lg:p-3'>
       <div className='relative mb-2 hover:scale-105 transition-all'>
         <img
           className='w-full h-60 rounded-bl-[20px] rounded-tr-[20px]'
