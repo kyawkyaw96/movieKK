@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getPopularMovie, getPopularTv } from "../redux/api";
+import { getPopularMovie, getPopularTv, movieCast } from "../redux/api";
 import { useEffect } from "react";
 import Nav from "../components/Nav";
 import Profile from "../components/Profile";

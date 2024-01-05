@@ -46,6 +46,7 @@ const TvDetails = () => {
 
     tvDetails();
   }, []);
+  
 
   useEffect(() => {
     // Log the updated state value when it changes
