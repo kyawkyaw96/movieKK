@@ -24,3 +24,19 @@ export const tvCast = async (id) => {
   );
   return data;
 };
+
+const options = {
+  method: "GET",
+  headers: {
+    Accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzdlNDI3ZDkxMGZhMWJkM2ZhMmVmOGJlNWViYWU2NCIsInN1YiI6IjY0Mjk0MWIzYzA0NDI5MDFlODE3NjZhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PwhsEBTu3O0R3uqbjHc6V9Utvox98-4StwotI6skxRw",
+  },
+};
+export const getUpComingMovies = async () => {
+  const { data } = await axios.get(
+    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+    options
+  );
+  return data;
+};

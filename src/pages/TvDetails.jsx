@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import Loading from "../Loader/Loading";
+import { TfiControlForward } from "react-icons/tfi";
+import { movieCast } from "../redux/api";
 const TvDetails = () => {
   const param = useParams();
   // console.log(param);
@@ -11,6 +13,8 @@ const TvDetails = () => {
   const [name, setName] = useState("");
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
+  const [castImages, setCastImages] = useState([]);
+  const [bgImage, setBgImage] = useState("");
 
   const [loading, setLoading] = useState(true);
 
@@ -36,7 +40,9 @@ const TvDetails = () => {
         setName(response.data?.genres[0]?.name);
         setName1(response.data?.genres[1]?.name);
         setName2(response.data?.genres[2]?.name);
-
+        setBgImage(
+          `https://image.tmdb.org/t/p/w500${response.data?.poster_path}`
+        );
         setLoading(false); // Mark loading as complete
       } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -46,7 +52,6 @@ const TvDetails = () => {
 
     tvDetails();
   }, []);
-  
 
   useEffect(() => {
     // Log the updated state value when it changes
@@ -75,12 +80,28 @@ const TvDetails = () => {
     fetchTvTrailer();
   }, []);
 
+  // cast image fetch
+  const getMovieCast = async () => {
+    // console.log(id);
+    const data = await movieCast(id);
+    const tv = data?.cast?.slice(0, 10);
+    setCastImages(tv);
+    console.log(data);
+  };
+  useEffect(() => {
+    getMovieCast();
+    console.log(castImages);
+  }, []);
+
   document.cookie = "myCookie=myValue; SameSite=Lax";
 
   return (
-    <div className=''>
-      <div className='bg-[#023F62] w-full h-full lg:fixed'>
-        <nav className=' bg-[#032541] py-2 lg:py-5 flex items-center justify-between lg:px-10'>
+    <div
+      className=' bg-cover bg-scroll'
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className=' w-full h-full backdrop-blur '>
+        <nav className=' bg-[#032541] sticky top-0 py-2 lg:py-5 flex items-center justify-between '>
           <Link to={"/"}>
             <div className=' flex items-center gap-3 ml-2 lg:gap-4'>
               <img
@@ -91,9 +112,10 @@ const TvDetails = () => {
             </div>
           </Link>
         </nav>
+        {/* <img src={`${bgImage}`} alt='' /> */}
         {fullTvDetails ? (
           <div className=' lg:flex  lg:items-center'>
-            <div className=' m-[2.2rem] lg:m-20'>
+            <div className=' m-[2.2rem] lg:m-20 drop-shadow-xl'>
               <img
                 className=' h-[450px] rounded-lg object-cover hover:scale-105 transition'
                 src={`https://image.tmdb.org/t/p/w500/${fullTvDetails?.poster_path}`}
@@ -142,6 +164,29 @@ const TvDetails = () => {
                 >
                   watch trailer
                 </a>
+              </div>
+              <h1 className=' text-white font-Noto text-xl'>Series Cast</h1>
+              <div className='flex flex-wrap lg:flex-nowrap'>
+                {castImages?.map((castImg) => (
+                  <div
+                    className=' w-16 h-24 m-1 rounded-md '
+                    key={castImg?.cast_id}
+                  >
+                    <img
+                      className=' rounded-md w-full'
+                      src={`https://image.tmdb.org/t/p/w500/${castImg?.profile_path}`}
+                    ></img>
+                  </div>
+                ))}
+
+                <div className=' w-16 h-24 m-1 flex items-center justify-center  '>
+                  <Link
+                    to={`/castImage/${id}`}
+                    className=' hover:text-black/50 rounded-md text-sm text-white flex flex-col items-center'
+                  >
+                    see more <TfiControlForward />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

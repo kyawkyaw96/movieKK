@@ -6,6 +6,7 @@ export const movieSlice = createSlice({
     popular: [],
     filterMovie: [],
     tv: [],
+    upComing: [],
   },
   reducers: {
     getMovie: (state, action) => {
@@ -31,9 +32,11 @@ export const movieSlice = createSlice({
           .includes(action.payload.toLowerCase())
       );
     },
-    
+    comingMovies: (state, action) => {
+      state.upComing = action.payload;
+    },
   },
 });
-export const { getMovie, getTv, filterActionMovie, searchMovie, } =
+export const { getMovie, getTv, filterActionMovie, searchMovie, comingMovies } =
   movieSlice.actions;
 export default movieSlice.reducer;

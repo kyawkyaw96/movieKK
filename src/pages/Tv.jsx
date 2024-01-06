@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Tv = ({ tv }) => {
+  const bgImg = tv?.poster_path;
   return (
     <div className='w-36 md:w-52 inline-block  m-2  transition bg-gray-300  lg:p-3'>
       <div className='relative mb-2 hover:scale-105 transition-all'>
         <img
-          className='w-full h-60 rounded-bl-[20px] rounded-tr-[20px]'
+          className='w-full h-60 rounded-[10px]'
           src={`https://image.tmdb.org/t/p/w500/${tv?.poster_path}`}
           alt=''
         />
-        <div className=' shadow-md bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600 rounded-bl-[20px] rounded-tr-[20px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-90'>
+        <div className=' shadow-md bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600 rounded-[10px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-90'>
           <Link to={`/tvDetails/${tv?.id}`}>
             <button
               title='Watch on youtube'

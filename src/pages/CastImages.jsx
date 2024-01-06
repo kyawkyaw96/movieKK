@@ -21,7 +21,7 @@ const CastImages = () => {
 
   return (
     <div className=' w-full h-full '>
-      <nav className=' bg-[#032541] py-2 lg:py-5 flex items-center justify-between lg:px-10'>
+      <nav className=' bg-[#032541] sticky top-0 py-2 lg:py-5 flex items-center justify-between lg:px-10'>
         <Link to={"/"}>
           <div className=' flex items-center gap-3 ml-2 lg:gap-4 hover:scale-105'>
             <img
