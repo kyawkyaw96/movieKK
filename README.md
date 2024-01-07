@@ -10,7 +10,10 @@ MovieKK is a sample movie project,make with react redux/toolkit and tailwind css
 yarn 
 yarn dev
 ```
-
+##Link
+```bash
+https://bejewelled-seahorse-a295df.netlify.app/
+```
 
 
 ## Contributing
