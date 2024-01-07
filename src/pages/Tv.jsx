@@ -1,4 +1,5 @@
 import React from "react";
+import { FaPlay } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Tv = ({ tv }) => {
@@ -11,16 +12,14 @@ const Tv = ({ tv }) => {
           src={`https://image.tmdb.org/t/p/w500/${tv?.poster_path}`}
           alt=''
         />
-        <div className=' shadow-md bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600 rounded-[10px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-90'>
-          <Link to={`/tvDetails/${tv?.id}`}>
-            <button
-              title='Watch on youtube'
-              className=' font-semibold bg-gray-300 shadow-gray-400 text-gray-800 text-lg rounded-full py-1 px-3'
-            >
-              Trailer
-            </button>
-          </Link>
-        </div>
+        <Link to={`/tvDetails/${tv?.id}`}>
+          <div className=' bg-transparent shadow-md bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600 rounded-[10px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-90'>
+            <FaPlay
+              className=' text-4xl text-white/70'
+              title='watch on youtube'
+            />
+          </div>
+        </Link>
       </div>
       <h1 className=' text-gray-700 text-lg font-bold'>
         {(tv?.name).substring(0, 23)}..

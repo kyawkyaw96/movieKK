@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
 
 const Movies = ({ movie }) => {
-  // const movId = movie?.id;
-  // console.log(`https://api.themoviedb.org/3/movie/${movId}/videos?api_key=be266615ba614a9b5e09a2f190ea0693&language=en-US`.results);
-  // const [trailer, setTrailer] = useState([]);
-  // const trailerVideo = async (movId) => {
-  //   const trailerLink=`https://api.themoviedb.org/3/movie/${movId}/videos?api_key=be266615ba614a9b5e09a2f190ea0693&language=en-US`
-  //   const {data} =
-  //     await axios.get(trailerLink);
-  //   console.log(data);
-  //   setTrailer(data)
-  //   console.log(trailer);
-  // };
-  // const detailId= "movie"
   return (
     <>
       <motion.div
@@ -31,16 +20,14 @@ const Movies = ({ movie }) => {
             src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
             alt=''
           />
-          <div className=' shadow-md bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600  rounded-[10px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-80'>
-            <Link to={`/movieDetails/${movie?.id}`}>
-              <button
+          <Link to={`/movieDetails/${movie?.id}`}>
+            <div className=' shadow-md bg-transparent bg-gradient-to-r from-blue-500 flex items-center justify-center bg-gray-600  rounded-[10px] shadow-red-400 w-full p-5 h-60 opacity-0 transition-opacity duration-500 ease-in absolute top-0 right-0 hover:opacity-80'>
+              <FaPlay
                 title='Watch on youtube'
-                className=' font-semibold bg-gray-300 shadow-gray-400 text-gray-800 text-lg rounded-full py-1 px-3'
-              >
-                Trailer
-              </button>
-            </Link>
-          </div>
+                className=' text-4xl text-white/70'
+              />
+            </div>
+          </Link>
         </div>
 
         <h1 className=' overflow-hidden ml-2 text-gray-700 text-lg font-bold'>

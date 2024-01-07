@@ -38,7 +38,8 @@ const RoutePage = () => {
 
   // fetch upcoming movies
   const comingMovie = useSelector((state) => state.movie.upComing?.results);
-  console.log(comingMovie);
+  const [arr] = [comingMovie];
+  const bg = `https://image.tmdb.org/t/p/w500${arr?.[10].poster_path}`;
   const comingData = async () => {
     const data = await getUpComingMovies();
     dispatch(comingMovies(data));
@@ -56,14 +57,17 @@ const RoutePage = () => {
     <div className=' font-Roboto overflow-y-hidden overflow-x-hidden bg-gray-300 '>
       <Nav />
       <Profile />
-      <div className=''>
-        <div className=' text-2xl text-black/80 font-bold flex items-center my-3 ms-1 lg:ms-3 '>
+      <div
+        className=' bg-cover bg-scroll backdrop-blur pt-4'
+        style={{ backgroundImage: `url(${bg})` }}
+      >
+        <div className=' text-2xl text-white/80 font-bold flex items-center my-3 ms-1 lg:ms-3 '>
           Top Rating{" "}
-          <h1 className=' px-4 py-1 text-sm ms-2  rounded-md text-green-900 font-bold border-green-900 border'>
+          <h1 className=' px-4 py-1 text-sm ms-2 bg-white/80 hover:bg-green-800 hover:text-white  rounded-md text-green-900 font-bold border-white border'>
             Movies
           </h1>
         </div>
-        <div className=' w-full h-[300px] scroll-smooth overflow-y-hidden whitespace-nowrap select-none my-2'>
+        <div className=' w-full h-[350px] py-6 scroll-smooth overflow-y-hidden whitespace-nowrap select-none my-2'>
           {comingMovie?.map((c) => (
             <UpComing key={c?.id} c={c} />
           ))}

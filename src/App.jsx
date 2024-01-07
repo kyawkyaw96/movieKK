@@ -4,6 +4,8 @@ import RoutePage from "./pages/RoutePage";
 import MovieDetails from "./pages/MovieDetails";
 import TvDetails from "./pages/TvDetails";
 import CastImages from "./pages/CastImages";
+import Movies from "./pages/Movies";
+import Tv from "./pages/Tv";
 
 const App = () => {
   return (
